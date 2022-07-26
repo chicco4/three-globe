@@ -3,6 +3,19 @@ todo:
     ☐ map a texture onto sphere
     ☐ sharpen rendering
 
-then:
-    ☐ alter texture with shader for atmosphere loop
-    ☐ create first vertex shader
+    alter texture with shader for atmosphere effect:
+        ☐ alter texture with shader for atmosphere loop
+        ☐ create first vertex shader
+        ☐ install vite-plugin-string
+        ☐ create first fragment shader
+        ☐ add texture to fragment shader using uniforms
+        ☐ transfer vertexUI to fragment shader using varying
+        ☐ add shade of blue usin vertexNormal
+    ☐ ok
+    
+    ☐ add extended atmosphere with second shader
+    ☐ add mouse movement interaction
+    ☐ add background stars
+    ☐ add html and css
+    
+☐ done
