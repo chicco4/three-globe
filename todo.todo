@@ -1,2 +1,8 @@
-✔ to do @done(22-07-26 17:58)
-✔ dddd @done(22-07-26 17:57)
+todo:
+    ☐ create a sphere
+    ☐ map a texture onto sphere
+    ☐ sharpen rendering
+
+then:
+    ☐ alter texture with shader for atmosphere loop
+    ☐ create first vertex shader
