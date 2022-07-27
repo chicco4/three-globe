@@ -8,3 +8,4 @@ A simple 3D globe made with vite.js and three.js
 
     npm install
     npm run build
+    npm run dev
