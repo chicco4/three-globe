@@ -1,6 +1,8 @@
 import "./style.css";
 // Option 1: Import the entire three.js core library.
 import * as THREE from "three";
+import vertexShader from "./shaders/vertex.glsl";
+console.log(vertexShader);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
