@@ -33,7 +33,6 @@ const sMaterial = new THREE.ShaderMaterial({
   },
 });
 const sphere = new THREE.Mesh(sGeometry, sMaterial);
-scene.add(sphere);
 
 //create atmosphere
 const aGeometry = new THREE.SphereGeometry(5, 50, 50);
@@ -41,20 +40,36 @@ const aMaterial = new THREE.ShaderMaterial({
   vertexShader: atmosphereVertexShader,
   fragmentShader: atmosphereFragmentShader,
   blending: THREE.AdditiveBlending,
-  side: THREE.BackSide
+  side: THREE.BackSide,
 });
 const atmosphere = new THREE.Mesh(aGeometry, aMaterial);
-atmosphere.scale.set(1.1, 1.1, 1.1);
-scene.add(atmosphere);
 
+atmosphere.scale.set(1.1, 1.1, 1.1);
+
+scene.add(atmosphere);
+const group = new THREE.Group();
+group.add(sphere);
+scene.add(group);
+
+let mouse = {
+  x: undefined,
+  y: undefined,
+};
+
+addEventListener("mousemove", (event) => {
+  mouse.x = (event.clientX / innerWidth) * 2 - 1;
+  mouse.y = (event.clientY / innerHeight) * 2 - 1;
+});
+
+//animation
 camera.position.z = 12;
 
 function animate() {
   requestAnimationFrame(animate);
+  renderer.render(scene, camera);
 
   sphere.rotation.y += 0.001;
-
-  renderer.render(scene, camera);
+  group.rotation.y = mouse.x * 0.5;
 }
 
 animate();
