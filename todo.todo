@@ -13,6 +13,6 @@ alter texture with shader for atmosphere loop:
     ✔ add shade of blue usin vertexNormal @done(22-07-27 11:37)
     
 ✔ add extended atmosphere with second shader @done(22-07-27 11:56)
-☐ add mouse movement interaction
+✔ add mouse movement interaction @done(22-07-27 12:20)
 ☐ add background stars
 ☐ add html and css
