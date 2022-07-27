@@ -1,8 +1,8 @@
 ✔ install three.js @done(22-07-26 23:11)
 ✔ create a scene, camere and render @done(22-07-27 08:42)
 ✔ create a sphere @done(22-07-27 08:56)
-☐ map a texture onto sphere
-☐ sharpen rendering
+✔ map a texture onto sphere @done(22-07-27 09:07)
+✔ sharpen rendering @done(22-07-27 09:09)
 
 alter texture with shader for atmosphere effect:
     ☐ alter texture with shader for atmosphere loop
