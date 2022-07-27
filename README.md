@@ -7,5 +7,5 @@ A simple 3D globe made with vite.js and three.js
 #### to build:
 
     npm install
-    npm run dev  // npm run build
-                 // npm run preview
+    npm run build
+    npm run preview
