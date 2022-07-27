@@ -5,7 +5,20 @@ import vertexShader from "./shaders/vertex.glsl";
 import fragmentShader from "./shaders/fragment.glsl";
 import atmosphereVertexShader from "./shaders/atmosphereVertex.glsl";
 import atmosphereFragmentShader from "./shaders/atmosphereFragment.glsl";
+import { Float32BufferAttribute, TubeGeometry } from "three";
 
+//mouse interaction
+let mouse = {
+  x: undefined,
+  y: undefined,
+};
+
+addEventListener("mousemove", (event) => {
+  mouse.x = (event.clientX / innerWidth) * 2 - 1;
+  mouse.y = (event.clientY / innerHeight) * 2 - 1;
+});
+
+//setting scene and render
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
@@ -51,15 +64,26 @@ const group = new THREE.Group();
 group.add(sphere);
 scene.add(group);
 
-let mouse = {
-  x: undefined,
-  y: undefined,
-};
-
-addEventListener("mousemove", (event) => {
-  mouse.x = (event.clientX / innerWidth) * 2 - 1;
-  mouse.y = (event.clientY / innerHeight) * 2 - 1;
+//create stars
+const starGeometry = new THREE.BufferGeometry();
+const starMaterial = new THREE.PointsMaterial({
+  color: 0xffffff,
 });
+
+const starVertices = [];
+for (let i = 0; i < 10000; i++) {
+  let x = (Math.random() - 0.5) * 2000;
+  let y = (Math.random() - 0.5) * 2000;
+  let z = -Math.random() * 2000;
+  starVertices.push(x, y, z);
+}
+starGeometry.setAttribute(
+  "position",
+  new THREE.Float32BufferAttribute(starVertices, 3)
+);
+
+const stars = new THREE.Points(starGeometry, starMaterial);
+scene.add(stars);
 
 //animation
 camera.position.z = 12;
