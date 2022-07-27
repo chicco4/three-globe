@@ -6,8 +6,8 @@
 
 alter texture with shader for atmosphere effect:
     ☐ alter texture with shader for atmosphere loop
-    ☐ create first vertex shader
-    ☐ install vite-plugin-string
+    ✔ create first vertex shader @done(22-07-27 10:07)
+    ✔ install vite-plugin-string @done(22-07-27 10:07)
     ☐ create first fragment shader
     ☐ add texture to fragment shader using uniforms
     ☐ transfer vertexUI to fragment shader using varying
