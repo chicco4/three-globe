@@ -12,7 +12,7 @@ alter texture with shader for atmosphere loop:
     ✔ transfer vertexUI to fragment shader using varying @done(22-07-27 10:44)
     ✔ add shade of blue usin vertexNormal @done(22-07-27 11:37)
     
-☐ add extended atmosphere with second shader
+✔ add extended atmosphere with second shader @done(22-07-27 11:56)
 ☐ add mouse movement interaction
 ☐ add background stars
 ☐ add html and css
