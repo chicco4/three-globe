@@ -26,6 +26,11 @@ const geometry = new THREE.SphereGeometry(5, 50, 50);
 const material = new THREE.ShaderMaterial({
   vertexShader,
   fragmentShader,
+  uniforms: {
+    globeTexture:{
+      value: new THREE.TextureLoader().load("./assets/globe.jpeg")
+    }
+  }
 });
 const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
