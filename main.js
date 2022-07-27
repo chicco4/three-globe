@@ -1,5 +1,5 @@
 import "./style.css";
-// Option 1: Import the entire three.js core library.
+import gsap from "gsap";
 import * as THREE from "three";
 import vertexShader from "./shaders/vertex.glsl";
 import fragmentShader from "./shaders/fragment.glsl";
@@ -68,8 +68,12 @@ function animate() {
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
 
-  sphere.rotation.y += 0.001;
-  group.rotation.y = mouse.x * 0.5;
+  sphere.rotation.y += 0.002;
+  gsap.to(group.rotation, {
+    x: -mouse.y * 0.3,
+    y: mouse.x * 0.5,
+    duration: 2,
+  });
 }
 
 animate();
