@@ -3,8 +3,8 @@ import "./style.css";
 import * as THREE from "three";
 import vertexShader from "./shaders/vertex.glsl";
 import fragmentShader from "./shaders/fragment.glsl";
-console.log(vertexShader);
-console.log(fragmentShader);
+import atmosphereVertexShader from "./shaders/atmosphereVertex.glsl";
+import atmosphereFragmentShader from "./shaders/atmosphereFragment.glsl";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -22,25 +22,36 @@ renderer.setPixelRatio(window.devicePixelRatio);
 document.body.appendChild(renderer.domElement);
 
 //create sphere
-const geometry = new THREE.SphereGeometry(5, 50, 50);
-const material = new THREE.ShaderMaterial({
+const sGeometry = new THREE.SphereGeometry(5, 50, 50);
+const sMaterial = new THREE.ShaderMaterial({
   vertexShader,
   fragmentShader,
   uniforms: {
-    globeTexture:{
-      value: new THREE.TextureLoader().load("./assets/globe.jpeg")
-    }
-  }
+    globeTexture: {
+      value: new THREE.TextureLoader().load("./assets/earth.jpg"),
+    },
+  },
 });
-const sphere = new THREE.Mesh(geometry, material);
+const sphere = new THREE.Mesh(sGeometry, sMaterial);
 scene.add(sphere);
+
+//create atmosphere
+const aGeometry = new THREE.SphereGeometry(5, 50, 50);
+const aMaterial = new THREE.ShaderMaterial({
+  vertexShader: atmosphereVertexShader,
+  fragmentShader: atmosphereFragmentShader,
+  blending: THREE.AdditiveBlending,
+  side: THREE.BackSide
+});
+const atmosphere = new THREE.Mesh(aGeometry, aMaterial);
+atmosphere.scale.set(1.1, 1.1, 1.1);
+scene.add(atmosphere);
 
 camera.position.z = 12;
 
 function animate() {
   requestAnimationFrame(animate);
 
-  sphere.rotation.x += 0.001;
   sphere.rotation.y += 0.001;
 
   renderer.render(scene, camera);
