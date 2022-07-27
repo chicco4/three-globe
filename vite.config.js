@@ -1,8 +1,8 @@
 // vite.config.js
-import vitePluginString from 'vite-plugin-string'
+import vitePluginString from "vite-plugin-string";
 
 export default {
   plugins: [
-    vitePluginString.default() //thats the way
-  ]
-}
+    vitePluginString.default(), //thats the way
+  ],
+};

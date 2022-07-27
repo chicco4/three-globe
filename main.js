@@ -6,6 +6,7 @@ import fragmentShader from "./shaders/fragment.glsl";
 import atmosphereVertexShader from "./shaders/atmosphereVertex.glsl";
 import atmosphereFragmentShader from "./shaders/atmosphereFragment.glsl";
 import { Float32BufferAttribute, TubeGeometry } from "three";
+import globe from "./assets/earth.jpg"
 
 //mouse interaction
 let mouse = {
@@ -41,7 +42,7 @@ const sMaterial = new THREE.ShaderMaterial({
   fragmentShader,
   uniforms: {
     globeTexture: {
-      value: new THREE.TextureLoader().load("./assets/earth.jpg"),
+      value: new THREE.TextureLoader().load(globe),
     },
   },
 });

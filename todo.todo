@@ -15,6 +15,6 @@ alter texture with shader for atmosphere loop:
 ✔ add extended atmosphere with second shader @done(22-07-27 11:56)
 ✔ add mouse movement interaction @done(22-07-27 12:20)
 ✔ add background stars @done(22-07-27 12:31)
+✔ npm run preview doesn't work @done(22-07-27 16:40)
 ☐ add html and css
 ☐ gh-pages doesn't work
-☐ npm run preview doesn't work
