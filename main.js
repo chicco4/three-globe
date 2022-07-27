@@ -2,7 +2,9 @@ import "./style.css";
 // Option 1: Import the entire three.js core library.
 import * as THREE from "three";
 import vertexShader from "./shaders/vertex.glsl";
+import fragmentShader from "./shaders/fragment.glsl";
 console.log(vertexShader);
+console.log(fragmentShader);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -21,11 +23,9 @@ document.body.appendChild(renderer.domElement);
 
 //create sphere
 const geometry = new THREE.SphereGeometry(5, 50, 50);
-const material = new THREE.MeshBasicMaterial({
-  //color: 0x00ff00,
-  map: new THREE.TextureLoader().load("./assets/earth.jpg"),
-  ////maybe jpeg is better:
-  //map: new THREE.TextureLoader().load("./assets/globe.jpeg"),
+const material = new THREE.ShaderMaterial({
+  vertexShader,
+  fragmentShader,
 });
 const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
